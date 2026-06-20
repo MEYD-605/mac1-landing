@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @layer base {
+  /* Default: Dark Mode */
   :root {
-    /* Brand anchors */
     --color-kinpaku-gold: oklch(84% 0.19 80.46);
     --color-verdigris-patina: oklch(70% 0.12 188);
     
@@ -19,5 +19,25 @@
     /* Hairlines & borders */
     --color-gold-hairline: oklch(78% 0 0 / 0.16);
     --color-gold-hairline-strong: oklch(74% 0.09 82 / 0.6);
+  }
+
+  /* Light / White Mode (High Contrast & Readability) */
+  html.light {
+    --color-kinpaku-gold: oklch(50% 0.15 80.46); /* Darker gold for visibility on white */
+    --color-verdigris-patina: oklch(42% 0.12 188); /* Darker teal for WCAG AAA contrast */
+    
+    /* Surfaces */
+    --color-lacquer-black: oklch(98% 0.005 95); /* Ivory lacquer background */
+    --color-lacquer-deep: oklch(94% 0.005 95);
+    --color-raised-lacquer: oklch(100% 0 0); /* Pure white raised panels */
+    
+    /* Text */
+    --color-champagne: oklch(12% 0.006 95); /* Charcoal black headlines */
+    --color-text-warm: oklch(18% 0.006 95); /* High-contrast body text */
+    --color-text-muted: oklch(35% 0.006 95); /* Readable muted text */
+    
+    /* Hairlines & borders */
+    --color-gold-hairline: oklch(50% 0.1 82 / 0.15);
+    --color-gold-hairline-strong: oklch(45% 0.1 82 / 0.7);
   }
 }
