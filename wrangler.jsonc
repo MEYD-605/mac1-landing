@@ -4,8 +4,9 @@
 	"compatibility_flags": ["global_fetch_strictly_public"],
 	"name": "mac1-landing",
 	"main": "@astrojs/cloudflare/entrypoints/server",
+	"routes": [{ "pattern": "mac1.buildwithoracle.com", "custom_domain": true }],
 	"assets": {
-		"directory": "./dist",
+		"directory": "./dist/client",
 		"binding": "ASSETS"
 	},
 	"observability": {
