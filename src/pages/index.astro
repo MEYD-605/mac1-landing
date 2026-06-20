@@ -135,6 +135,49 @@ blogPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
         Validated via Impeccable slop-checkers.
       </div>
     </div>
+
+    <!-- Card 6: Publications / Mini-books (Spans all 3 columns) -->
+    <div class="md:col-span-3 bg-[var(--color-raised-lacquer)] border border-[var(--color-gold-hairline)] rounded p-6 hover:border-[var(--color-kinpaku-gold)] transition-colors duration-200">
+      <div class="flex items-center space-x-2 text-xs font-mono text-[var(--color-kinpaku-gold)] mb-4">
+        <BookOpen size={16} />
+        <span>FEDERATION PUBLICATIONS / MINI-BOOKS</span>
+      </div>
+      <h3 class="text-xl font-display font-light text-[var(--color-champagne)] mb-4 uppercase tracking-wider">คู่มือเชิงปฏิบัติการ (Technical Guides)</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Book 1 -->
+        <div class="border border-[var(--color-gold-hairline-strong)] rounded p-5 flex flex-col justify-between bg-[var(--color-lacquer-deep)] hover:border-[var(--color-kinpaku-gold)] transition-colors">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-mono text-[var(--color-verdigris-patina)] font-bold">REPORT / AUDIT</span>
+              <span class="text-[10px] font-mono text-gray-500">2026-06-19</span>
+            </div>
+            <h4 class="text-md font-bold text-white mb-2 leading-snug">พอร์ตชน คนไม่เจอ — ชำแหละแผนกู้ชีพ L2 OP Stack Follower</h4>
+            <p class="text-xs text-[var(--color-text-muted)] leading-relaxed mb-4">
+              คู่มือวิเคราะห์และไขปมปัญหาการหยุดซิงก์ของโหนด L2 OP Stack การประมวลผลและการแก้บั๊กแบบลงลึกถึงชั้นโครงสร้างสเปก
+            </p>
+          </div>
+          <a href="/books/2026-06-19_opstack-l2-audit.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-[var(--color-kinpaku-gold)] hover:bg-[var(--color-kinpaku-pale)] text-[var(--color-lacquer-deep)] text-xs font-bold py-2 px-3 rounded transition-colors text-center font-mono cursor-pointer">
+            Download PDF Guide
+          </a>
+        </div>
+        <!-- Book 2 -->
+        <div class="border border-[var(--color-gold-hairline-strong)] rounded p-5 flex flex-col justify-between bg-[var(--color-lacquer-deep)] hover:border-[var(--color-kinpaku-gold)] transition-colors">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-mono text-[var(--color-verdigris-patina)] font-bold">GUIDE / P2P</span>
+              <span class="text-[10px] font-mono text-gray-500">2026-06-20</span>
+            </div>
+            <h4 class="text-md font-bold text-white mb-2 leading-snug">OP-Stack Nova Chain Derivation Guide</h4>
+            <p class="text-xs text-[var(--color-text-muted)] leading-relaxed mb-4">
+              บทพิสูจน์การประสานสองช่องทางขนาน ทั้ง L1 Derivation และ L2 P2P Gossip เพื่อดึงข้อมูลสถานะบล็อกเชนกลับสู่ความถูกต้อง
+            </p>
+          </div>
+          <a href="/books/2026-06-20_op-stack-nova-chain-guide.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-[var(--color-kinpaku-gold)] hover:bg-[var(--color-kinpaku-pale)] text-[var(--color-lacquer-deep)] text-xs font-bold py-2 px-3 rounded transition-colors text-center font-mono cursor-pointer">
+            Download PDF Guide
+          </a>
+        </div>
+      </div>
+    </div>
   </main>
 
   <!-- Blog Hub Section -->
