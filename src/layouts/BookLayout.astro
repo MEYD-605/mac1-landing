@@ -3,6 +3,10 @@ import Layout from './Layout.astro';
 import { ArrowLeft, BookOpen, Download, ExternalLink, Github } from 'lucide-react';
 
 const { frontmatter } = Astro.props;
+
+const gitHash = import.meta.env.PUBLIC_GIT_HASH || 'unknown';
+const gitBranch = import.meta.env.PUBLIC_GIT_BRANCH || 'unknown';
+const buildDate = import.meta.env.PUBLIC_BUILD_DATE || new Date().toLocaleString('th-TH', { timeZone: 'Asia/Bangkok' });
 ---
 
 <Layout title={`${frontmatter.title} — mac1 Books`} description={frontmatter.description}>
@@ -62,12 +66,19 @@ const { frontmatter } = Astro.props;
     </div>
 
     <!-- Repository / Reference section at the very end of the page -->
-    <footer class="mt-8 border-t border-[var(--color-gold-hairline)] pt-6 text-xs text-gray-500 font-mono flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-      <div>
-        <span>Repository: <a href={frontmatter.repoUrl} target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:underline">{frontmatter.repoUrl}</a></span>
+    <footer class="mt-8 border-t border-[var(--color-gold-hairline)] pt-6 text-xs text-gray-500 font-mono flex flex-col gap-4">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <span>Repository: <a href={frontmatter.repoUrl} target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:underline">{frontmatter.repoUrl}</a></span>
+        </div>
+        <div>
+          <span>Verified safe for public release</span>
+        </div>
       </div>
-      <div>
-        <span>Verified safe for public release</span>
+      <div class="text-[10px] text-gray-500 border-t border-[var(--color-gold-hairline)]/30 pt-4 space-y-1">
+        <p>Build Debug Info:</p>
+        <p>Branch: <span class="text-[var(--color-kinpaku-gold)]">{gitBranch}</span> | Commit: <span class="text-[var(--color-kinpaku-gold)]">{gitHash}</span></p>
+        <p>Build Date: <span class="text-[var(--color-kinpaku-gold)]">{buildDate} (ICT)</span></p>
       </div>
     </footer>
   </article>
