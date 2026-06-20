@@ -1,0 +1,95 @@
+---
+import Layout from './Layout.astro';
+import { ArrowLeft, BookOpen, Download, ExternalLink, Github } from 'lucide-react';
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={`${frontmatter.title} — mac1 Books`} description={frontmatter.description}>
+  <!-- Back button -->
+  <div class="mb-8">
+    <a href="/" class="inline-flex items-center space-x-2 text-xs font-mono text-[var(--color-kinpaku-gold)] hover:underline cursor-pointer">
+      <ArrowLeft size={14} />
+      <span>Back to Home / กลับหน้าแรก</span>
+    </a>
+  </div>
+
+  <article class="max-w-3xl mx-auto">
+    <!-- Header -->
+    <header class="mb-8 border-b border-[var(--color-gold-hairline)] pb-6">
+      <div class="flex items-center space-x-2 text-xs font-mono text-[var(--color-kinpaku-gold)] mb-3">
+        <BookOpen size={14} />
+        <span>FEDERATION PUBLICATIONS / MINI-BOOKS</span>
+      </div>
+      <h1 class="text-3xl font-display font-bold text-[var(--color-champagne)] tracking-tight mb-2">
+        {frontmatter.title}
+      </h1>
+      <p class="text-xs text-[var(--color-text-muted)] font-mono">
+        Published: {frontmatter.date} | Author: {frontmatter.author}
+      </p>
+    </header>
+
+    <!-- Main Text Content (Prose) -->
+    <div class="prose prose-invert max-w-none text-[var(--color-text-warm)] leading-relaxed text-sm space-y-6">
+      <slot />
+    </div>
+
+    <!-- Actions & Downloads Section (Placed after content) -->
+    <div class="mt-12 border-t border-[var(--color-gold-hairline)] pt-8 pb-8 space-y-6">
+      <h3 class="text-lg font-mono font-bold text-[var(--color-champagne)]">Downloads & Reference</h3>
+      
+      <!-- Link to Markdown on GitHub so AI can copy it -->
+      <p class="text-xs text-[var(--color-text-muted)] leading-relaxed">
+        ท่านสามารถเข้าดูและคัดลอกไฟล์ Markdown ของหนังสือเล่มนี้โดยตรงบน GitHub เพื่อส่งให้ AI อ่านได้ที่นี่:
+        <br />
+        <a href={frontmatter.githubMarkdownUrl} target="_blank" rel="noopener noreferrer" class="text-[var(--color-kinpaku-gold)] hover:underline inline-flex items-center gap-1 mt-1 font-mono">
+          <Github size={12} />
+          <span>{frontmatter.githubMarkdownUrl}</span>
+          <ExternalLink size={10} />
+        </a>
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap gap-4 items-center">
+        <a href={frontmatter.pdfUrl} download class="inline-flex items-center justify-center bg-[var(--color-btn-primary-bg)] hover:bg-[var(--color-btn-primary-hover-bg)] text-[var(--color-btn-primary-text)] hover:text-[var(--color-btn-primary-hover-text)] text-xs font-bold py-2.5 px-4 rounded transition-colors text-center font-mono cursor-pointer">
+          <Download size={14} class="mr-1.5" />
+          <span>Download PDF / ดาวน์โหลด PDF ↓</span>
+        </a>
+        <a href={`/books/preview?file=${frontmatter.pdfUrl}`} class="inline-flex items-center justify-center bg-transparent hover:bg-[var(--color-btn-outline-hover-bg)] text-[var(--color-btn-outline-text)] hover:text-[var(--color-btn-outline-hover-text)] border border-[var(--color-btn-outline-border)] hover:border-[var(--color-btn-outline-hover-bg)] font-bold py-2.5 px-4 rounded font-mono text-xs transition-all duration-200 cursor-pointer">
+          <span>View Interactive PDF / ดูตัวอย่าง PDF &rarr;</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Repository / Reference section at the very end of the page -->
+    <footer class="mt-8 border-t border-[var(--color-gold-hairline)] pt-6 text-xs text-gray-500 font-mono flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div>
+        <span>Repository: <a href={frontmatter.repoUrl} target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:underline">{frontmatter.repoUrl}</a></span>
+      </div>
+      <div>
+        <span>Verified safe for public release</span>
+      </div>
+    </footer>
+  </article>
+</Layout>
+
+<style is:global>
+  /* Base Markdown styles for the book content */
+  .prose h1, .prose h2, .prose h3, .prose h4 {
+    color: var(--color-champagne);
+    font-family: var(--font-mono);
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .prose h1 { font-size: 1.6rem; }
+  .prose h2 { font-size: 1.35rem; border-bottom: 1px solid var(--color-gold-hairline); padding-bottom: 0.5rem; }
+  .prose h3 { font-size: 1.15rem; }
+  .prose p { margin-bottom: 1.25rem; }
+  .prose ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; }
+  .prose li { margin-bottom: 0.5rem; }
+  .prose code { background-color: var(--color-raised-lacquer); border: 1px solid var(--color-gold-hairline); padding: 0.125rem 0.25rem; rounded: 3px; font-size: 0.85em; }
+  .prose pre { background-color: var(--color-lacquer-deep); border: 1px solid var(--color-gold-hairline); padding: 1rem; rounded: 4px; overflow-x: auto; margin-bottom: 1.25rem; }
+  .prose pre code { background-color: transparent; border: none; padding: 0; font-size: inherit; }
+  .prose strong { color: var(--color-champagne); font-weight: bold; }
+</style>
