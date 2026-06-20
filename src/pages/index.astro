@@ -6,7 +6,12 @@ import { Shield, BookOpen, Cpu, Globe, ArrowUpRight, Github, ExternalLink } from
 
 const blogPosts = await getCollection('blog');
 blogPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const gitHash = import.meta.env.PUBLIC_GIT_HASH || 'unknown';
+const gitBranch = import.meta.env.PUBLIC_GIT_BRANCH || 'unknown';
+const buildDate = import.meta.env.PUBLIC_BUILD_DATE || new Date().toLocaleString('th-TH', { timeZone: 'Asia/Bangkok' });
 ---
+
 
 <Layout title="mac1 — Sovereign Orchestrator Portal" description="พอร์ตโฟลิโอและเว็บบล็อกระบบปฏิบัติการเอเจนต์ mac1 แห่ง maclab">
   <!-- Header -->
@@ -234,12 +239,19 @@ blogPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
   </section>
 
   <!-- Footer -->
-  <footer class="mt-16 border-t border-[var(--color-gold-hairline)] pt-6 pb-12 flex flex-col md:flex-row md:justify-between md:items-center gap-4 text-xs font-mono text-gray-600">
-    <div>
-      <span>&copy; 2026 mac1 Node. All rights reserved.</span>
+  <footer class="mt-16 border-t border-[var(--color-gold-hairline)] pt-6 pb-12 flex flex-col gap-4 text-xs font-mono text-gray-600">
+    <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+      <div>
+        <span>&copy; 2026 mac1 Node. All rights reserved.</span>
+      </div>
+      <div class="flex space-x-4">
+        <span>Powered by Astro 5.x & Cloudflare Edge</span>
+      </div>
     </div>
-    <div class="flex space-x-4">
-      <span>Powered by Astro 5.x & Cloudflare Edge</span>
+    <div class="text-[10px] text-gray-500 border-t border-[var(--color-gold-hairline)]/30 pt-4 space-y-1">
+      <p>Build Metadata for Debugging:</p>
+      <p>Branch: <span class="text-[var(--color-kinpaku-gold)]">{gitBranch}</span> | Commit: <span class="text-[var(--color-kinpaku-gold)]">{gitHash}</span></p>
+      <p>Build Date: <span class="text-[var(--color-kinpaku-gold)]">{buildDate} (ICT)</span></p>
     </div>
   </footer>
 </Layout>
