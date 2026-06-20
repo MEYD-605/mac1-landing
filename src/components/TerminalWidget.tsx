@@ -39,8 +39,8 @@ export default function TerminalWidget() {
   };
 
   return (
-    <div className="bg-[oklch(11%_0.006_95)] border border-[oklch(78%_0_0_/_0.16)] rounded p-4 font-mono text-sm shadow-lg hover:border-[var(--color-kinpaku-gold)] transition-colors duration-200">
-      <div className="flex items-center justify-between border-b border-[oklch(78%_0_0_/_0.16)] pb-2 mb-3">
+    <div className="bg-[var(--color-raised-lacquer)] border border-[var(--color-gold-hairline)] rounded p-4 font-mono text-sm shadow-lg hover:border-[var(--color-kinpaku-gold)] transition-colors duration-200">
+      <div className="flex items-center justify-between border-b border-[var(--color-gold-hairline)] pb-2 mb-3">
         <div className="flex items-center space-x-2">
           <Terminal size={16} className="text-[var(--color-kinpaku-gold)]" />
           <span className="text-xs font-bold text-[var(--color-text-muted)]">mac1-orchestrator-shell</span>
@@ -53,7 +53,7 @@ export default function TerminalWidget() {
       </div>
       <div className="h-48 overflow-y-auto space-y-1.5 mb-3 text-xs text-[var(--color-text-warm)]">
         {history.map((line, idx) => (
-          <div key={idx} className={line.startsWith('mac1$') ? 'text-[var(--color-kinpaku-gold)]' : line.includes('error') || line.includes('not found') ? 'text-red-400' : 'text-[var(--color-text-muted)]'}>
+          <div key={idx} className={line.startsWith('mac1$') ? 'text-[var(--color-kinpaku-gold)]' : line.includes('error') || line.includes('not found') ? 'text-red-500 dark:text-red-400' : 'text-[var(--color-text-muted)]'}>
             {line}
           </div>
         ))}
@@ -65,9 +65,9 @@ export default function TerminalWidget() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Enter command..."
-          className="flex-1 bg-transparent border-none outline-none text-[var(--color-champagne)] placeholder-[oklch(52%_0_0)] text-xs"
+          className="flex-1 bg-transparent border-none outline-none text-[var(--color-champagne)] placeholder-[var(--color-text-muted)] text-xs"
         />
-        <button type="submit" className="text-gray-500 hover:text-white transition-colors cursor-pointer">
+        <button type="submit" className="text-[var(--color-text-muted)] hover:text-[var(--color-champagne)] transition-colors cursor-pointer">
           <ArrowRight size={14} />
         </button>
       </form>

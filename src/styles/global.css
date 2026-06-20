@@ -19,6 +19,17 @@
     /* Hairlines & borders */
     --color-gold-hairline: oklch(78% 0 0 / 0.16);
     --color-gold-hairline-strong: oklch(74% 0.09 82 / 0.6);
+
+    /* Semantic Buttons */
+    --color-btn-primary-bg: var(--color-kinpaku-gold);
+    --color-btn-primary-text: var(--color-lacquer-deep);
+    --color-btn-primary-hover-bg: oklch(89% 0.20 80.46);
+    --color-btn-primary-hover-text: var(--color-lacquer-deep);
+
+    --color-btn-outline-text: var(--color-kinpaku-gold);
+    --color-btn-outline-border: var(--color-gold-hairline-strong);
+    --color-btn-outline-hover-bg: var(--color-kinpaku-gold);
+    --color-btn-outline-hover-text: var(--color-lacquer-deep);
   }
 
   /* Light / White Mode (High Contrast & Readability) */
@@ -39,5 +50,16 @@
     /* Hairlines & borders */
     --color-gold-hairline: oklch(50% 0.1 82 / 0.15);
     --color-gold-hairline-strong: oklch(45% 0.1 82 / 0.7);
+
+    /* Semantic Buttons - High Contrast for Accessibility */
+    --color-btn-primary-bg: var(--color-kinpaku-gold); /* oklch(50% 0.15 80.46) */
+    --color-btn-primary-text: oklch(98% 0.005 95); /* Off-white for high contrast against gold bg (4.56:1 contrast) */
+    --color-btn-primary-hover-bg: oklch(42% 0.12 80.46); /* Darker gold for active states (increases contrast to 6.25:1) */
+    --color-btn-primary-hover-text: oklch(98% 0.005 95);
+
+    --color-btn-outline-text: oklch(40% 0.12 80.46); /* Deep gold/brown to achieve >6:1 contrast against light surface */
+    --color-btn-outline-border: oklch(45% 0.1 82 / 0.7);
+    --color-btn-outline-hover-bg: var(--color-kinpaku-gold);
+    --color-btn-outline-hover-text: oklch(98% 0.005 95);
   }
 }
