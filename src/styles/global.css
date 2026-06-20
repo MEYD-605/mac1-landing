@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Brand anchors */
+    --color-kinpaku-gold: oklch(84% 0.19 80.46);
+    --color-verdigris-patina: oklch(70% 0.12 188);
+    
+    /* Surfaces */
+    --color-lacquer-black: oklch(7% 0.006 95);
+    --color-lacquer-deep: oklch(4% 0.004 95);
+    --color-raised-lacquer: oklch(11% 0.006 95);
+    
+    /* Text */
+    --color-champagne: oklch(91% 0 0);
+    --color-text-warm: oklch(88% 0 0);
+    --color-text-muted: oklch(72% 0 0);
+    
+    /* Hairlines & borders */
+    --color-gold-hairline: oklch(78% 0 0 / 0.16);
+    --color-gold-hairline-strong: oklch(74% 0.09 82 / 0.6);
+  }
+}

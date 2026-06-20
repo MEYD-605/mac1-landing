@@ -18,7 +18,7 @@ const { Content } = await render(post);
 <Layout title={`${post.data.title} — mac1 Blog`} description={post.data.description}>
   <!-- Back button -->
   <div class="mb-8">
-    <a href="/" class="inline-flex items-center space-x-2 text-xs font-mono text-[#F97316] hover:underline cursor-pointer">
+    <a href="/" class="inline-flex items-center space-x-2 text-xs font-mono text-[var(--color-kinpaku-gold)] hover:underline cursor-pointer">
       <ArrowLeft size={14} />
       <span>Back to Home</span>
     </a>
@@ -26,7 +26,7 @@ const { Content } = await render(post);
 
   <article class="max-w-3xl mx-auto">
     <!-- Header -->
-    <header class="mb-8 border-b border-[#1E293B] pb-6">
+    <header class="mb-8 border-b border-[var(--color-gold-hairline)] pb-6">
       <div class="flex flex-wrap items-center gap-3 text-xs font-mono text-gray-500 mb-3">
         <span class="flex items-center space-x-1">
           <Calendar size={12} />
@@ -37,12 +37,12 @@ const { Content } = await render(post);
           <span>Blog Post</span>
         </span>
       </div>
-      <h1 class="text-2xl md:text-3xl font-extrabold text-[#F8FAFC] tracking-tight mb-4">
+      <h1 class="text-2xl md:text-3xl font-extrabold text-[var(--color-champagne)] tracking-tight mb-4">
         {post.data.title}
       </h1>
       <div class="flex flex-wrap gap-2">
         {post.data.tags.map((tag: string) => (
-          <span class="inline-flex items-center space-x-1 text-[10px] font-mono bg-[#131C2E] border border-[#1E293B] text-gray-400 px-2 py-0.5 rounded">
+          <span class="inline-flex items-center space-x-1 text-[10px] font-mono bg-[var(--color-raised-lacquer)] border border-[var(--color-gold-hairline)] text-gray-400 px-2 py-0.5 rounded">
             <Tag size={10} />
             <span>{tag}</span>
           </span>
@@ -51,12 +51,12 @@ const { Content } = await render(post);
     </header>
 
     <!-- Content -->
-    <div class="prose prose-invert max-w-none text-gray-300 leading-relaxed text-sm space-y-6">
+    <div class="prose prose-invert max-w-none text-[var(--color-text-warm)] leading-relaxed text-sm space-y-6">
       <Content />
     </div>
 
     <!-- Author block -->
-    <footer class="mt-12 border-t border-[#1E293B] pt-6 text-xs text-gray-500 font-mono flex items-center justify-between">
+    <footer class="mt-12 border-t border-[var(--color-gold-hairline)] pt-6 text-xs text-gray-500 font-mono flex items-center justify-between">
       <span>Written by Node mac1</span>
       <span>Validated safe for public release</span>
     </footer>
@@ -66,20 +66,20 @@ const { Content } = await render(post);
 <style is:global>
   /* Base Markdown styles for the article content */
   .prose h1, .prose h2, .prose h3, .prose h4 {
-    color: #F8FAFC;
+    color: var(--color-champagne);
     font-family: var(--font-mono);
     font-weight: bold;
     margin-top: 1.5rem;
     margin-bottom: 0.75rem;
   }
   .prose h1 { font-size: 1.5rem; }
-  .prose h2 { font-size: 1.25rem; border-bottom: 1px solid #1E293B; padding-bottom: 0.5rem; }
+  .prose h2 { font-size: 1.25rem; border-bottom: 1px solid var(--color-gold-hairline); padding-bottom: 0.5rem; }
   .prose h3 { font-size: 1.1rem; }
   .prose p { margin-bottom: 1rem; }
   .prose ul { list-style-type: disc; padding-left: 1.25rem; margin-bottom: 1rem; }
   .prose li { margin-bottom: 0.5rem; }
-  .prose code { background-color: #131C2E; border: 1px solid #1E293B; padding: 0.125rem 0.25rem; rounded: 3px; font-size: 0.85em; }
-  .prose pre { background-color: #131C2E; border: 1px solid #1E293B; padding: 1rem; rounded: 6px; overflow-x: auto; margin-bottom: 1rem; }
+  .prose code { background-color: var(--color-raised-lacquer); border: 1px solid var(--color-gold-hairline); padding: 0.125rem 0.25rem; rounded: 3px; font-size: 0.85em; }
+  .prose pre { background-color: var(--color-lacquer-deep); border: 1px solid var(--color-gold-hairline); padding: 1rem; rounded: 4px; overflow-x: auto; margin-bottom: 1rem; }
   .prose pre code { background-color: transparent; border: none; padding: 0; font-size: inherit; }
-  .prose strong { color: #F8FAFC; font-weight: bold; }
+  .prose strong { color: var(--color-champagne); font-weight: bold; }
 </style>
